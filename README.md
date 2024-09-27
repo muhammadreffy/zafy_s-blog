@@ -1,4 +1,10 @@
 ![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(200).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(214).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(216).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(217).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(215).png?raw=true)
+
+
 
 <p>
     Proyek web ini bertujuan untuk menyediakan platform yang memungkinkan pengguna untuk membuat dan membagikan postingan atau artikel yang menarik. Konten yang disajikan dapat mencakup berbagai topik, seperti pemrograman, tempat hiburan, dan berbagai tema menarik lainnya. Dengan fokus pada pengalaman pengguna yang intuitif, proyek ini bertujuan untuk menjadi sumber informasi yang inspiratif dan bermanfaat bagi pembaca.
