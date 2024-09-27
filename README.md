@@ -20,3 +20,41 @@
     Pengguna Biasa: Pengguna yang hanya dapat membaca artikel dan tidak memiliki izin untuk membuat atau mempublikasikan postingan.
     </li>
 </ol>
+
+<h1>
+    User Flow
+</h1>
+
+<p>
+    Pengunjung Baru: Saat pertama kali mengunjungi website, pengguna akan disambut dengan halaman hero section. Namun, mereka tidak dapat membaca artikel apa pun jika belum login.
+</p>
+
+<p>
+Login untuk Akses Artikel: Pengguna diwajibkan untuk login ke dalam sistem terlebih dahulu jika ingin membaca artikel yang ada di website. Jika belum memiliki akun, pengguna harus mendaftar.
+</p>
+
+
+<p>
+Permohonan Sebagai Writer: Jika seorang pengguna ingin membuat dan mempublikasikan artikel, mereka dapat mengajukan diri untuk menjadi writer melalui dashboard pengguna. 
+</p>
+<p>
+Persetujuan Admin: Admin memiliki wewenang untuk meninjau dan memutuskan apakah pengguna yang mengajukan diri sebagai writer diizinkan atau tidak. Jika disetujui, pengguna akan diberikan akses untuk memposting artikel tanpa perlu melalui proses review lebih lanjut oleh admin.
+Jika tidak disetujui, pengguna tetap hanya bisa membaca artikel tanpa kemampuan untuk membuat postingan.
+</p>
+
+<p>
+    Menulis dan Memposting: Setelah disetujui sebagai writer, pengguna dapat langsung membuat dan mempublikasikan artikel secara mandiri, tanpa perlu review tambahan dari admin.
+</p>
+
+<h3>
+    Tech stack yang digunakan:
+</h3>
+
+<ol>
+    <li>
+        Flowbite
+    </li>
+    <li>
+        Laravel
+    </li>
+</ol>
