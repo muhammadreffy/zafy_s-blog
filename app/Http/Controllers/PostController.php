@@ -8,21 +8,37 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Writer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $userLogin = Auth::user()->writer;
 
+        $search = $request->input('search');
+
+        $posts = Post::orderBy('title');
+
+        if ($search != '') {
+            $posts->where('title', 'like', '%' . $search . '%');
+        }
+
         if (Auth::user()->hasRole('owner')) {
-            $posts = Post::latest()->get();
+
+            $posts = $posts->latest()->paginate(10);
+
         } else if ($userLogin) {
-            $posts = $userLogin->posts;
+            $posts = $userLogin->posts()
+                ->where('title', 'like', '%' . $search . '%')
+                ->orderBy('title')
+                ->paginate(10);
+
         } else {
+
             $posts = collect();
         }
 
@@ -39,22 +55,40 @@ class PostController extends Controller
     {
         $writer = Writer::where('user_id', Auth::user()->id)->firstOrFail();
 
-        DB::transaction(function () use ($request, $writer) {
-            $validated = $request->validated();
+        $validated = $request->validated();
+
+        DB::beginTransaction();
+
+        try {
 
             if ($request->hasFile('thumbnail')) {
                 $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            $validated['slug'] = Str::slug($validated['title']);
+            $slug = Str::slug($validated['title']);
+
+            $slugCheck = Post::where('slug', 'like', "$slug%")->count();
+
+            if ($slugCheck > 0) {
+                $slug = "{$slug}-" . ($slugCheck + 1);
+            }
+
+            $validated['slug'] = $slug;
             $validated['writer_id'] = $writer->id;
 
             Post::create($validated);
-        });
 
-        return redirect()->route('dashboard.posts.index')
-            ->with('successfullAddNewPost', 'Successfully add a new Post');
+            DB::commit();
+
+            return redirect()->route('dashboard.posts.index')
+                ->with('successfullAddNewPost', 'Successfully add a new Post');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->route('dashboard.posts.index')
+                ->with('failedAddNewPost', 'Failed to add new Post');
+        }
     }
 
     public function show(Post $post)
@@ -73,30 +107,59 @@ class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post)
     {
-        DB::transaction(function () use ($request, $post) {
-            $validated = $request->validated();
+        $validated = $request->validated();
 
+        DB::beginTransaction();
+
+        try {
             if ($request->hasFile('thumbnail')) {
                 $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            $validated['slug'] = Str::slug($validated['title']);
+            $slug = Str::slug($validated['title']);
+
+            $slugCheck = Post::where('slug', 'like', "$slug%")->count();
+
+            if ($slugCheck > 0) {
+                $slug = "{$slug}-" . ($slugCheck + 1);
+            }
+
+            $validated['slug'] = $slug;
 
             $post->update($validated);
-        });
 
-        return redirect()->route('dashboard.posts.index')
-            ->with('updatedPostSuccessfully', 'Successfully updated the post');
+            DB::commit();
+
+            return redirect()->route('dashboard.posts.index')
+                ->with('updatedPostSuccessfully', 'Successfully updated the post');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->route('dashboard.posts.index')
+                ->with('updatePostFailed', 'Failed to update the post');
+        }
     }
 
     public function destroy(Post $post)
     {
-        DB::transaction(function () use ($post) {
-            $post->delete();
-        });
+        DB::beginTransaction();
 
-        return redirect()->route('dashboard.posts.index')
-            ->with('deletedPostSuccessfully', 'Post deleted successfully');
+        try {
+            $post->delete();
+
+            DB::commit();
+
+            return redirect()->route('dashboard.posts.index')
+                ->with('deletedPostSuccessfully', 'Post deleted successfully');
+        } catch (\Throwable $th) {
+
+            DB::rollBack();
+
+            return redirect()->route('dashboard.posts.index')
+                ->with('deletePostFailed', 'Post failed to delete');
+        }
+
     }
 }

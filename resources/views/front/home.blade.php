@@ -12,7 +12,7 @@
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
                     Read and write in one place designed for <br /> sharing ideas, stories, and experiences.
                 </p>
-                <a href="#"
+                <a href="{{ route('auth.login') }}"
                     class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary hover:bg-color_hover focus:ring-4 focus:ring-primary">
                     Start Reading
                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -22,7 +22,7 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </a>
-                <a href="#"
+                <a href="{{ route('dashboard.writers.index') }}"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
                     Start Writing
                 </a>

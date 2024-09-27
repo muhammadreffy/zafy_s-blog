@@ -1,4 +1,4 @@
-<a href="{{ route('index') }}" class="flex items-center ms-2 md:me-24 gap-x-2">
+<a href="{{ route('index') }}" class="flex items-center gap-x-2">
     <svg class="w-8 h-8 text-primary" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
         fill="currentColor" viewBox="0 0 24 24">
         <path

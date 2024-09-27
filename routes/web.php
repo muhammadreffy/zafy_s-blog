@@ -23,22 +23,24 @@ Route::name('auth.')->prefix('auth')->middleware('auth_check')->group(function (
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/my-profile/@{user:username}', [ProfileController::class, 'profile'])->name('profile')->middleware('dashboard_auth');
-Route::get('/settings/my-profile/@{user:username}', [ProfileController::class, 'settings'])->name('settings')->middleware('dashboard_auth');
-Route::put('/update/my-profile/@{user:username}', [ProfileController::class, 'update_profile'])->name('update_profile')->middleware('dashboard_auth');
+Route::middleware('dashboard_auth')->group(function () {
+    Route::get('/my-profile/@{user:username}', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/settings/my-profile/@{user:username}', [ProfileController::class, 'settings'])->name('settings');
+    Route::put('/update/my-profile/@{user:username}', [ProfileController::class, 'update_profile'])->name('update_profile');
+});
 
 // =========================AUTHENTICATICATE END===================
 
 Route::name('dashboard.')->prefix('dashboard')->middleware('dashboard_auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-    Route::name('category.')->prefix('category')->middleware('role:owner')->group(function () {
+    Route::name('category.')->prefix('categories')->middleware('role:owner')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('/add-category', [CategoryController::class, 'create'])->name('create');
         Route::post('/add-category', [CategoryController::class, 'store'])->name('store');
-        Route::get('/edit-category/{slug}', [CategoryController::class, 'edit'])->name('edit');
-        Route::put('/edit-category/{slug}', [CategoryController::class, 'update'])->name('update');
-        Route::delete('/delete-category/{slug}', [CategoryController::class, 'destroy'])->name('destroy');
+        Route::get('/edit-category/{category:slug}/edit', [CategoryController::class, 'edit'])->name('edit');
+        Route::put('/edit-category/{category:slug}/update', [CategoryController::class, 'update'])->name('update');
+        Route::delete('/delete-category/{category:slug}/delete', [CategoryController::class, 'destroy'])->name('destroy');
     });
 
     Route::name('writers.')->prefix('writers')->group(function () {
@@ -65,5 +67,4 @@ Route::name('post.')->prefix('post')->middleware('dashboard_auth')->group(functi
 });
 
 Route::get('/profile/{user:username}', [FrontController::class, 'user_profile'])->name('profile.user');
-
 Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('category');

@@ -37,7 +37,7 @@
 
                         <a href="{{ route('post.detail', $post->slug) }}" class="flex gap-x-3">
                             <div class="mt-3">
-                                <h3 class="text-xl font-bold">{{ $post->title }}</h3>
+                                <h3 class="text-xl font-bold hover:underline">{{ $post->title }}</h3>
                                 <p class="text-sm font-medium text-secondary">{{ Str::limit($post->description, 100) }}
                                 </p>
 

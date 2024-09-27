@@ -16,14 +16,23 @@
                     <div class="flex items-center mb-4 gap-x-4">
                         <img src="{{ Storage::url(Auth::user()->avatar) }}" alt="{{ Auth::user()->username }}"
                             class="object-cover w-24 h-24 rounded-md">
-                        <div>
-                            <label for="avatar"
-                                class="px-3 py-2 text-sm font-medium text-white rounded-sm cursor-pointer bg-primary hover:bg-color_hover">
-                                Select Photo
-                            </label>
-                            <input type="file" id="avatar" name="avatar" hidden>
+                        <div class="flex flex-col gap-y-3">
+                            <div class="items-center md:flex gap-x-2">
+                                <label for="avatar"
+                                    class="px-3 py-2 text-sm font-medium text-white rounded-sm cursor-pointer bg-primary hover:bg-color_hover">
+                                    Select Photo
+                                </label>
+                                <input type="file" id="avatar" name="avatar" hidden>
 
-                            <p class="mt-3 text-xs w-52 text-secondary">
+                                @error('avatar')
+                                    <span class="block mt-3 text-xs text-red-600 md:mt-0">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+
+                            </div>
+
+                            <p class="text-xs w-52 text-secondary">
                                 Your profile picture should have a 1:1 ratio and be no larger than 2MB.
                             </p>
                         </div>

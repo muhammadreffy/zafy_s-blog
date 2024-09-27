@@ -21,9 +21,9 @@
                                 Status
                             </th>
 
-                            <th scope="col" class="px-6 py-3">
+                            {{-- <th scope="col" class="px-6 py-3">
                                 Action
-                            </th>
+                            </th> --}}
                         </tr>
                     </thead>
 
@@ -41,16 +41,19 @@
 
                                 @if ($writer->is_active)
                                     <td class="px-6 py-4">
-                                        <x-button.index label="ACTIVE" class="cursor-default bg-emerald-500 focus:ring-0" />
+                                        <span
+                                            class="px-4 py-2 text-sm font-medium text-green-400 bg-green-100 border border-green-400 rounded-full">
+                                            Active
+                                        </span>
                                     </td>
-                                    <td class="px-6 py-4">
+                                    {{-- <td class="px-6 py-4">
                                         <form action="" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <x-button.index label="DELETE"
                                                 class="bg-red-600 hover:bg-red-500 focus:ring-red-600" />
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 @else
                                     <td class="px-6 py-4">
                                         <x-button.index label="PENDING" class="bg-orange-500 cursor-default focus:ring-0" />
@@ -76,7 +79,7 @@
                 </table>
             </div>
         @else
-            <div class="flex flex-col items-center justify-center w-full p-4 shadow-md sm:w-7/12">
+            <div class="flex flex-col items-center justify-center w-full p-6 shadow-md sm:w-7/12">
                 <svg class="text-gray-800 w-11 h-11" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"

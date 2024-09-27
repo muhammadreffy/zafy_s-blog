@@ -9,8 +9,7 @@
     <section class="mt-24 sm:ml-72">
         <h2 class="text-xl font-semibold text-primary">Edit Category</h2>
 
-        <form action="{{ route('dashboard.category.update', ['slug' => $category->slug]) }}" method="POST"
-            class="mt-4 w-80">
+        <form action="{{ route('dashboard.category.update', $category->slug) }}" method="POST" class="mt-4 w-80">
             @csrf
             @method('PUT')
 

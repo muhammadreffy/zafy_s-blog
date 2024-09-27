@@ -10,7 +10,10 @@
         </div>
 
         <div class="mt-10">
-            <h4 class="mb-6 text-xl font-semibold">Latest Posts</h4>
+
+            @if ($category->posts->count() === [])
+                <h4 class="mb-6 text-xl font-semibold">Latest Posts</h4>
+            @endif
 
             <div class="grid grid-cols-12 gap-10">
                 @foreach ($posts as $post)
