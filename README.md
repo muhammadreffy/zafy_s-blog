@@ -1,66 +1,66 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(200).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(214).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(216).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(217).png?raw=true)
+![alt text](https://github.com/muhammadreffy/zafy_s-blog/blob/main/public/img/Screenshot%20(215).png?raw=true)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+
+
+<p>
+    Proyek web ini bertujuan untuk menyediakan platform yang memungkinkan pengguna untuk membuat dan membagikan postingan atau artikel yang menarik. Konten yang disajikan dapat mencakup berbagai topik, seperti pemrograman, tempat hiburan, dan berbagai tema menarik lainnya. Dengan fokus pada pengalaman pengguna yang intuitif, proyek ini bertujuan untuk menjadi sumber informasi yang inspiratif dan bermanfaat bagi pembaca.
 </p>
 
-## About Laravel
+<p>
+    Proyek web ini dirancang untuk memungkinkan pengguna membuat dan berbagi artikel atau postingan tentang berbagai topik menarik, seperti pemrograman, tempat hiburan, dan lainnya. Namun, tidak semua pengguna yang mendaftar dapat langsung membuat postingan. Mereka harus terlebih dahulu mendapatkan persetujuan dari pemilik website. Oleh karena itu, sistem ini memiliki tiga peran utama:
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<ol>
+    <li>
+        Admin: Bertanggung jawab penuh atas pengelolaan situs, termasuk mengatur kategori postingan, menyetujui atau menolak pengguna yang ingin menulis, serta memiliki wewenang untuk menghapus postingan yang telah dibuat.
+    </li>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<li>
+    Writer: Pengguna yang telah mendapatkan persetujuan untuk membuat dan mempublikasikan konten di website.
+    </li>
+    <li>
+    Pengguna Biasa: Pengguna yang hanya dapat membaca artikel dan tidak memiliki izin untuk membuat atau mempublikasikan postingan.
+    </li>
+</ol>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<h1>
+    User Flow
+</h1>
 
-## Learning Laravel
+<p>
+    Pengunjung Baru: Saat pertama kali mengunjungi website, pengguna akan disambut dengan halaman hero section. Namun, mereka tidak dapat membaca artikel apa pun jika belum login.
+</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p>
+Login untuk Akses Artikel: Pengguna diwajibkan untuk login ke dalam sistem terlebih dahulu jika ingin membaca artikel yang ada di website. Jika belum memiliki akun, pengguna harus mendaftar.
+</p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p>
+Permohonan Sebagai Writer: Jika seorang pengguna ingin membuat dan mempublikasikan artikel, mereka dapat mengajukan diri untuk menjadi writer melalui dashboard pengguna. 
+</p>
+<p>
+Persetujuan Admin: Admin memiliki wewenang untuk meninjau dan memutuskan apakah pengguna yang mengajukan diri sebagai writer diizinkan atau tidak. Jika disetujui, pengguna akan diberikan akses untuk memposting artikel tanpa perlu melalui proses review lebih lanjut oleh admin.
+Jika tidak disetujui, pengguna tetap hanya bisa membaca artikel tanpa kemampuan untuk membuat postingan.
+</p>
 
-## Laravel Sponsors
+<p>
+    Menulis dan Memposting: Setelah disetujui sebagai writer, pengguna dapat langsung membuat dan mempublikasikan artikel secara mandiri, tanpa perlu review tambahan dari admin.
+</p>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<h3>
+    Tech stack yang digunakan:
+</h3>
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<ol>
+    <li>
+        Flowbite
+    </li>
+    <li>
+        Laravel
+    </li>
+</ol>
