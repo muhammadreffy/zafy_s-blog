@@ -13,12 +13,19 @@
         Admin: Bertanggung jawab penuh atas pengelolaan situs, termasuk mengatur kategori postingan, menyetujui atau menolak pengguna yang ingin menulis, serta memiliki wewenang untuk menghapus postingan yang telah dibuat.
     </li>
 
+
+    
+</ol>
+
+<ol>
     <li>
+        <li>
     Writer: Pengguna yang telah mendapatkan persetujuan untuk membuat dan mempublikasikan konten di website.
     </li>
+</ol>
 
+<ol>
     <li>
     Pengguna Biasa: Pengguna yang hanya dapat membaca artikel dan tidak memiliki izin untuk membuat atau mempublikasikan postingan.
     </li>
-    
-</ul>
+</ol>
